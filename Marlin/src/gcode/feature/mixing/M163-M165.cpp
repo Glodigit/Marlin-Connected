@@ -96,6 +96,27 @@ void GcodeSuite::M164() {
         if (!TEST(mix_bits, i)) mixer.set_collector(i, 0.0f);
       mixer.normalize();
     }
+    // Report the latest V-tool mixes
+    if (parser.seen_test('R')) M165_report();
+  }
+
+  void GcodeSuite::M165_report(const bool forReplay/*=true*/) {
+    gcode.report_heading_etc(forReplay, F(STR_CURRENT_VTOOLS));
+    VTOOLS_LOOP(i) {
+      // Get mixes from all tools as a percentage
+      mixer.refresh_collector(100.0, i);
+      SERIAL_ECHO(F("  V"), i, ":");  // Avoid using 'Tn:' substring so output is fully visible on
+                                      // BTT Touchscreen terminal.
+      SERIAL_ECHOLNPGM(LIST_N(DOUBLE(MIXING_STEPPERS),
+         "  A", p_float_t(mixer.collector[0], 1),
+          " B", p_float_t(mixer.collector[1], 1),
+          " C", p_float_t(mixer.collector[2], 1),
+          " D", p_float_t(mixer.collector[3], 1),
+          " H", p_float_t(mixer.collector[4], 1),
+          " I", p_float_t(mixer.collector[5], 1),
+          " J", p_float_t(mixer.collector[6], 1),
+          " K", p_float_t(mixer.collector[7], 1)));
+    }
   }
 
 #endif // DIRECT_MIXING_IN_G1
