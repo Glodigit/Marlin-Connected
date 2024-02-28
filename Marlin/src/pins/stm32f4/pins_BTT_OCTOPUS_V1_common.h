@@ -499,7 +499,8 @@
     #define E3_SERIAL_TX_PIN                  PD3
     #define E3_SERIAL_RX_PIN      E3_SERIAL_TX_PIN
   #endif // HAS_TMC_UART
-#endif 
+#endif // XYZ_ON_BTT_MOTOR_EXPANSION
+
 #if HAS_TMC_UART
 // Reduce baud rate to improve software serial reliability
     #ifndef TMC_BAUD_RATE
