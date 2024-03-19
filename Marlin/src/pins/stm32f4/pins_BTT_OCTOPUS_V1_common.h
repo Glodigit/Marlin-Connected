@@ -515,13 +515,15 @@
 #define TEMP_1_PIN                          PF5   // TH1
 #define TEMP_2_PIN                          PF6   // TH2
 #define TEMP_3_PIN                          PF7   // TH3
+#define TEMP_CHAMBER_PIN                    TEMP_1_PIN
 
 //
 // Heaters / Fans
 //
-#define HEATER_BED_PIN                      PA3   //PA1   // Hotbed
+#define HEATER_CHAMBER_PIN                  PA1
 #define HEATER_0_PIN                        PA2   // Heater0
-#define HEATER_1_PIN                        PA1   //PA3   // Heater1
+#define HEATER_BED_PIN                      PA3   // Hotbed (default PA1)
+//#define HEATER_1_PIN                      PA3   // Heater1
 #define HEATER_2_PIN                        PB10  // Heater2
 #define HEATER_3_PIN                        PB11  // Heater3
 

@@ -161,11 +161,7 @@
 
 // Number of hotends...
 #if ANY(SINGLENOZZLE, MIXING_EXTRUDER)                
-  #if ANY(MIXING_EXTRUDER, SEPARATE_MIX_HEATBLOCK)
-    #define HOTENDS 2
-  #else
-    #define HOTENDS 1                                 // Only one for singlenozzle or mixing extruder
-  #endif
+  #define HOTENDS 1                                 // Only one for singlenozzle or mixing extruder
 #elif HAS_SWITCHING_EXTRUDER && !HAS_SWITCHING_NOZZLE // One for each pair of abstract "extruders"
   #define HOTENDS E_STEPPERS
 #elif TEMP_SENSOR_0
@@ -185,17 +181,15 @@
 // More than one hotend...
 #if HOTENDS > 1
   #define HAS_MULTI_HOTEND 1
-  #if DISABLED(SEPARATE_MIX_HEATBLOCK)
-    #define HAS_HOTEND_OFFSET 1
-    #ifndef HOTEND_OFFSET_X
-      #define HOTEND_OFFSET_X { 0 } // X offsets for each extruder
-    #endif
-    #ifndef HOTEND_OFFSET_Y
-      #define HOTEND_OFFSET_Y { 0 } // Y offsets for each extruder
-    #endif
-    #ifndef HOTEND_OFFSET_Z
-      #define HOTEND_OFFSET_Z { 0 } // Z offsets for each extruder
-    #endif
+  #define HAS_HOTEND_OFFSET 1
+  #ifndef HOTEND_OFFSET_X
+    #define HOTEND_OFFSET_X { 0 } // X offsets for each extruder
+  #endif
+  #ifndef HOTEND_OFFSET_Y
+    #define HOTEND_OFFSET_Y { 0 } // Y offsets for each extruder
+  #endif
+  #ifndef HOTEND_OFFSET_Z
+    #define HOTEND_OFFSET_Z { 0 } // Z offsets for each extruder
   #endif
 #else
   #undef HOTEND_OFFSET_X
