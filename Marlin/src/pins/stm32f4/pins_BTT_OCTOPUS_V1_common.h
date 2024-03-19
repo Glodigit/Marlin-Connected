@@ -53,7 +53,7 @@
     #if X_HOME_TO_MIN
       #define X_MAX_PIN                E4_DIAG_PIN
     #else
-      #define X_MIN_PIN                E4_DIAG_PIN
+      #define X_MIN_PIN                E0_DIAG_PIN
     #endif
   #elif NEEDS_X_MINMAX
     #ifndef X_MIN_PIN
@@ -71,7 +71,7 @@
     #if Y_HOME_TO_MIN
       #define Y_MAX_PIN                E5_DIAG_PIN 
     #else
-      #define Y_MIN_PIN                E5_DIAG_PIN
+      #define Y_MIN_PIN                E1_DIAG_PIN
     #endif
   #elif NEEDS_Y_MINMAX
     #ifndef Y_MIN_PIN
@@ -89,7 +89,7 @@
     #if Z_HOME_TO_MIN
       #define Z_MAX_PIN                E6_DIAG_PIN
     #else
-      #define Z_MIN_PIN                E6_DIAG_PIN 
+      #define Z_MIN_PIN                E2_DIAG_PIN 
     #endif
   #elif NEEDS_Z_MINMAX
     #ifndef Z_MIN_PIN

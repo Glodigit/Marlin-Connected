@@ -821,7 +821,7 @@
   //#define MPC_AUTOTUNE_MENU                         // Add MPC auto-tuning to the "Advanced Settings" menu. (~350 bytes of flash)
 
   #define MPC_MAX 255                                 // (0..255) Current to nozzle while MPC is active.
-  #define MPC_HEATER_POWER { 80.0f, 60.0f }           // (W) Heat cartridge powers.
+  #define MPC_HEATER_POWER { 60.0f, 140.0f }           // (W) Heat cartridge powers.
 
   #define MPC_INCLUDE_FAN                             // Model the fan speed?
 
@@ -1367,7 +1367,9 @@
  * Override with M92 (when enabled below)
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 418.5 }
+//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 418.75 }    // 16 microsteps
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 320, 320, 1600, 1675 } // 64 microsteps
+
 
 /**
  * Enable support for M92. Disable to save at least ~530 bytes of flash.
@@ -1392,7 +1394,7 @@
  * Override with M201
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 2400, 2400, 600, 9600 }
+#define DEFAULT_MAX_ACCELERATION      { 2400, 2400, 150, 4800 }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -1424,7 +1426,7 @@
   #define DEFAULT_XJERK 12.0
   #define DEFAULT_YJERK 12.0
   #define DEFAULT_ZJERK  3.0
-  #define DEFAULT_EJERK 30.0
+  #define DEFAULT_EJERK 12.0
   //#define DEFAULT_IJERK  0.3
   //#define DEFAULT_JJERK  0.3
   //#define DEFAULT_KJERK  0.3
@@ -1881,7 +1883,7 @@
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 #define INVERT_X_DIR true
-#define INVERT_Y_DIR true
+#define INVERT_Y_DIR false
 #define INVERT_Z_DIR false
 //#define INVERT_I_DIR false
 //#define INVERT_J_DIR false
@@ -1894,13 +1896,13 @@
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
 #define INVERT_E0_DIR false
-#define INVERT_E1_DIR false
+#define INVERT_E1_DIR true
 #define INVERT_E2_DIR false
-#define INVERT_E3_DIR false
+#define INVERT_E3_DIR true
 #define INVERT_E4_DIR false
-#define INVERT_E5_DIR false
+#define INVERT_E5_DIR true
 #define INVERT_E6_DIR false
-#define INVERT_E7_DIR false
+#define INVERT_E7_DIR true
 
 // @section homing
 
@@ -2779,7 +2781,7 @@
  * SD Card support is disabled by default. If your controller has an SD slot,
  * you must uncomment the following option or it won't work.
  */
-//#define SDSUPPORT
+#define SDSUPPORT
 
 /**
  * SD CARD: ENABLE CRC
