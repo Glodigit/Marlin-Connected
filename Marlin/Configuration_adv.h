@@ -222,7 +222,7 @@
   //#define HEATER_CHAMBER_INVERTING false
   //#define FAN1_PIN                   -1   // Remove the fan signal on pin P2_04 (example: SKR 1.4 Turbo HE1 plug)
 
-  #define CHAMBER_FAN               // Enable a fan on the chamber
+  //#define CHAMBER_FAN               // Enable a fan on the chamber
   #if ENABLED(CHAMBER_FAN)
     #define CHAMBER_FAN_INDEX     4   // Index of a fan to repurpose as the chamber fan. (Default: first unused fan)
     #define CHAMBER_FAN_MODE      0   // Fan control mode: 0=Static; 1=Linear increase when temp is higher than target; 2=V-shaped curve; 3=similar to 1 but fan is always on.
@@ -681,7 +681,7 @@
  * Multiple extruders can be assigned to the same pin in which case
  * the fan will turn on when any selected extruder is above the threshold.
  */
-#define E0_AUTO_FAN_PIN -1
+#define E0_AUTO_FAN_PIN FAN4_PIN
 #define E1_AUTO_FAN_PIN -1
 #define E2_AUTO_FAN_PIN -1
 #define E3_AUTO_FAN_PIN -1
@@ -692,7 +692,7 @@
 #define CHAMBER_AUTO_FAN_PIN -1 //FAN4_PIN
 #define COOLER_AUTO_FAN_PIN -1
 
-#define EXTRUDER_AUTO_FAN_TEMPERATURE 50
+#define EXTRUDER_AUTO_FAN_TEMPERATURE 36
 #define EXTRUDER_AUTO_FAN_SPEED 255   // 255 == full speed
 #define CHAMBER_AUTO_FAN_TEMPERATURE 40
 #define CHAMBER_AUTO_FAN_SPEED 255
@@ -2971,7 +2971,7 @@
   #if AXIS_IS_TMC_CONFIG(X)
     #define X_CURRENT       600        // (mA) RMS current. Multiply by 1.414 for peak current.
     #define X_CURRENT_HOME  X_CURRENT  // (mA) RMS current for sensorless homing
-    #define X_MICROSTEPS    64         // 0..256
+    #define X_MICROSTEPS    16         // 0..256
     #define X_RSENSE        0.11
     #define X_CHAIN_POS    -1          // -1..0: Not chained. 1: MCU MOSI connected. 2: Next in chain, ...
     //#define X_INTERPOLATE  true      // Enable to override 'INTERPOLATE' for the X axis
@@ -3110,7 +3110,7 @@
 
   #if AXIS_IS_TMC_CONFIG(E0)
     #define E0_CURRENT     450
-    #define E0_MICROSTEPS  X_MICROSTEPS
+    #define E0_MICROSTEPS  8
     #define E0_RSENSE      0.11
     #define E0_CHAIN_POS  -1
     //#define E0_INTERPOLATE true
@@ -3354,30 +3354,30 @@
    * STEALTHCHOP_(XY|Z|E) must be enabled to use HYBRID_THRESHOLD.
    * M913 X/Y/Z/E to live tune the setting
    */
-  //#define HYBRID_THRESHOLD
+  #define HYBRID_THRESHOLD
 
-  #define X_HYBRID_THRESHOLD     100  // [mm/s]
-  #define X2_HYBRID_THRESHOLD    100
-  #define Y_HYBRID_THRESHOLD     100
-  #define Y2_HYBRID_THRESHOLD    100
-  #define Z_HYBRID_THRESHOLD       3
-  #define Z2_HYBRID_THRESHOLD      3
-  #define Z3_HYBRID_THRESHOLD      3
-  #define Z4_HYBRID_THRESHOLD      3
-  #define I_HYBRID_THRESHOLD       3  // [linear=mm/s, rotational=°/s]
-  #define J_HYBRID_THRESHOLD       3  // [linear=mm/s, rotational=°/s]
-  #define K_HYBRID_THRESHOLD       3  // [linear=mm/s, rotational=°/s]
-  #define U_HYBRID_THRESHOLD       3  // [mm/s]
-  #define V_HYBRID_THRESHOLD       3
-  #define W_HYBRID_THRESHOLD       3
-  #define E0_HYBRID_THRESHOLD     30
-  #define E1_HYBRID_THRESHOLD     30
-  #define E2_HYBRID_THRESHOLD     30
-  #define E3_HYBRID_THRESHOLD     30
-  #define E4_HYBRID_THRESHOLD     30
-  #define E5_HYBRID_THRESHOLD     30
-  #define E6_HYBRID_THRESHOLD     30
-  #define E7_HYBRID_THRESHOLD     30
+  #define X_HYBRID_THRESHOLD     300  // [mm/s]
+  #define X2_HYBRID_THRESHOLD    X_HYBRID_THRESHOLD
+  #define Y_HYBRID_THRESHOLD     X_HYBRID_THRESHOLD
+  #define Y2_HYBRID_THRESHOLD    X_HYBRID_THRESHOLD
+  #define Z_HYBRID_THRESHOLD     600
+  #define Z2_HYBRID_THRESHOLD    Z_HYBRID_THRESHOLD
+  #define Z3_HYBRID_THRESHOLD    Z_HYBRID_THRESHOLD
+  #define Z4_HYBRID_THRESHOLD    Z_HYBRID_THRESHOLD
+  #define I_HYBRID_THRESHOLD     3   // [linear=mm/s, rotational=°/s]
+  #define J_HYBRID_THRESHOLD     3   // [linear=mm/s, rotational=°/s]
+  #define K_HYBRID_THRESHOLD     3   // [linear=mm/s, rotational=°/s]
+  #define U_HYBRID_THRESHOLD     3   // [mm/s]
+  #define V_HYBRID_THRESHOLD     3
+  #define W_HYBRID_THRESHOLD     3
+  #define E0_HYBRID_THRESHOLD    600
+  #define E1_HYBRID_THRESHOLD    E0_HYBRID_THRESHOLD
+  #define E2_HYBRID_THRESHOLD    E0_HYBRID_THRESHOLD
+  #define E3_HYBRID_THRESHOLD    E0_HYBRID_THRESHOLD
+  #define E4_HYBRID_THRESHOLD    E0_HYBRID_THRESHOLD
+  #define E5_HYBRID_THRESHOLD    E0_HYBRID_THRESHOLD
+  #define E6_HYBRID_THRESHOLD    E0_HYBRID_THRESHOLD
+  #define E7_HYBRID_THRESHOLD    E0_HYBRID_THRESHOLD
 
   /**
    * Use StallGuard to home / probe X, Y, Z.
