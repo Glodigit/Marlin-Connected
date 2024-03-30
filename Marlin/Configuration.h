@@ -435,7 +435,7 @@
     //#define GRADIENT_VTOOL       // Add M166 T to use a V-tool index as a Gradient alias
   #endif
   #if ENABLED(PUSH_PULL_TOOLCHANGE)
-    #define MIXING_PUSH_PULL_MM         30   // (mm)     Maximum length for a single extruder to push/pull
+    #define MIXING_PUSH_PULL_MM         1.5  // (mm)     Maximum length for a single extruder to push/pull
     #define MIXING_PUSH_PULL_FEEDRATE   300  // (mm/min) V-tool extruder feedrate
   #endif
 #endif
