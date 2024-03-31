@@ -1240,7 +1240,7 @@
  * Enable DISABLE_IDLE_* to shut down axis steppers after an idle period.
  * The default timeout duration can be overridden with M18 and M84. Set to 0 for No Timeout.
  */
-#define DEFAULT_STEPPER_TIMEOUT_SEC 120
+#define DEFAULT_STEPPER_TIMEOUT_SEC 0
 #define DISABLE_IDLE_X
 #define DISABLE_IDLE_Y
 #define DISABLE_IDLE_Z    // Disable if the nozzle could fall onto your printed part!
@@ -1250,7 +1250,7 @@
 //#define DISABLE_IDLE_U
 //#define DISABLE_IDLE_V
 //#define DISABLE_IDLE_W
-#define DISABLE_IDLE_E    // Shut down all idle extruders
+//#define DISABLE_IDLE_E  // Shut down all idle extruders
 
 // Default Minimum Feedrates for printing and travel moves
 #define DEFAULT_MINIMUMFEEDRATE       0.0     // (mm/s. °/s for rotational-only moves) Minimum feedrate. Set with M205 S.
@@ -2616,7 +2616,7 @@
 // For debug-echo: 128 bytes for the optimal speed.
 // Other output doesn't need to be that speedy.
 // :[0, 2, 4, 8, 16, 32, 64, 128, 256]
-#define TX_BUFFER_SIZE 0
+#define TX_BUFFER_SIZE 128
 
 // Host Receive Buffer Size
 // Without XON/XOFF flow control (see SERIAL_XON_XOFF below) 32 bytes should be enough.
@@ -3356,7 +3356,7 @@
    */
   #define HYBRID_THRESHOLD
 
-  #define X_HYBRID_THRESHOLD     300  // [mm/s]
+  #define X_HYBRID_THRESHOLD     600  // [mm/s]
   #define X2_HYBRID_THRESHOLD    X_HYBRID_THRESHOLD
   #define Y_HYBRID_THRESHOLD     X_HYBRID_THRESHOLD
   #define Y2_HYBRID_THRESHOLD    X_HYBRID_THRESHOLD
