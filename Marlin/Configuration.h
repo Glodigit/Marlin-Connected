@@ -958,10 +958,9 @@
   //#define PID_CHAMBER_DEBUG // Print Chamber PID debug data to the serial port.
 
   // Coaxial8or
-  #define DEFAULT_chamberKp 12.3116
-  #define DEFAULT_chamberKi 0.6901
+  #define DEFAULT_chamberKp 19.2279 
+  #define DEFAULT_chamberKi 1.6240  
   #define DEFAULT_chamberKd 146.4256
-  // M309 P37.04 I1.04 D655.17
 
   // FIND YOUR OWN: "M303 E-2 C8 S50" to run autotune on the chamber at 50 degreesC for 8 cycles.
 #endif // PIDTEMPCHAMBER
