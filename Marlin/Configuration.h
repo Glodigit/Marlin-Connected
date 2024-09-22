@@ -835,7 +835,7 @@
   //#define MPC_AUTOTUNE_MENU                         // Add MPC auto-tuning to the "Advanced Settings" menu. (~350 bytes of flash)
 
   #define MPC_MAX 255                                 // (0..255) Current to nozzle while MPC is active.
-  #define MPC_HEATER_POWER { 200.0f }                 // (W) Heat cartridge powers.
+  #define MPC_HEATER_POWER { 175.0f } // 3.3Ω 24V     // (W) Heat cartridge powers.
 
   #define MPC_INCLUDE_FAN                             // Model the fan speed?
 
@@ -1914,13 +1914,13 @@
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
 #define INVERT_E0_DIR false
-#define INVERT_E1_DIR true
-#define INVERT_E2_DIR false
-#define INVERT_E3_DIR true
+#define INVERT_E3_DIR false 
 #define INVERT_E4_DIR false
+#define INVERT_E7_DIR false 
+#define INVERT_E1_DIR true
+#define INVERT_E2_DIR true
 #define INVERT_E5_DIR true
-#define INVERT_E6_DIR false
-#define INVERT_E7_DIR true
+#define INVERT_E6_DIR true
 
 // @section homing
 
