@@ -1208,7 +1208,7 @@
 #if ANY(INPUT_SHAPING_X, INPUT_SHAPING_Y, INPUT_SHAPING_Z)
   #if ENABLED(INPUT_SHAPING_X)
     #define SHAPING_FREQ_X  31.6        // (Hz) The default dominant resonant frequency on the X axis.
-    #define SHAPING_ZETA_X   0.55       // Damping ratio of the X axis (range: 0.0 = no damping to 1.0 = critical damping).
+    #define SHAPING_ZETA_X   0.6        // Damping ratio of the X axis (range: 0.0 = no damping to 1.0 = critical damping).
   #endif
   #if ENABLED(INPUT_SHAPING_Y)
     #define SHAPING_FREQ_Y  18.3        // (Hz) The default dominant resonant frequency on the Y axis.
