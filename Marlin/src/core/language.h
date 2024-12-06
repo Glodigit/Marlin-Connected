@@ -192,6 +192,7 @@
 #define STR_ERR_PUSHPULL_TOO_COLD           "V-tool switched without push/pull"
 #define STR_ERR_EEPROM_WRITE                "Error writing to EEPROM!"
 #define STR_ERR_EEPROM_CORRUPT              "EEPROM Corrupt"
+#define STR_EEPROM_INITIALIZED              "EEPROM Initialized"
 
 #define STR_FILAMENT_CHANGE_HEAT_LCD        "Press button to heat nozzle"
 #define STR_FILAMENT_CHANGE_INSERT_LCD      "Insert filament and press button"
@@ -324,6 +325,7 @@
 #define STR_TEMPERATURE_UNITS               "Temperature Units"
 #define STR_USER_THERMISTORS                "User thermistors"
 #define STR_DELAYED_POWEROFF                "Delayed poweroff"
+#define STR_STORED_MACROS                   "Stored macros"
 #define STR_CURRENT_VTOOLS                  "Current virtual tool mixes"
 
 //
