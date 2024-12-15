@@ -842,12 +842,12 @@
   #define MPC_INCLUDE_FAN                             // Model the fan speed?
 
   // Measured physical constants from M306
-  // Coaxial8or R2  
-  #define MPC_BLOCK_HEAT_CAPACITY         { 40.738f } // (J/K) Heat block heat capacities.
-  #define MPC_SENSOR_RESPONSIVENESS       { 0.2861f } // (K/s per ∆K) Rate of change of sensor temperature from heat block.
-  #define MPC_AMBIENT_XFER_COEFF          { 0.5346f } // (W/K) Heat transfer coefficients from heat block to room air with fan off.
+  // Coaxial8or R3  
+  #define MPC_BLOCK_HEAT_CAPACITY         { 41.080f } // (J/K) Heat block heat capacities.
+  #define MPC_SENSOR_RESPONSIVENESS       { 0.1664f } // (K/s per ∆K) Rate of change of sensor temperature from heat block.
+  #define MPC_AMBIENT_XFER_COEFF          { 0.5751f } // (W/K) Heat transfer coefficients from heat block to room air with fan off.
   #if ENABLED(MPC_INCLUDE_FAN)
-    #define MPC_AMBIENT_XFER_COEFF_FAN255 { 0.5367f } // (W/K) Heat transfer coefficients from heat block to room air with fan on full.
+    #define MPC_AMBIENT_XFER_COEFF_FAN255 { 0.5456f } // (W/K) Heat transfer coefficients from heat block to room air with fan on full.
   #endif
 
   // For one fan and multiple hotends MPC needs to know how to apply the fan cooling effect.
@@ -1431,7 +1431,7 @@
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 480, 480, 90, 120 }
+#define DEFAULT_MAX_FEEDRATE          { 240, 240, 60, 120 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
