@@ -1208,18 +1208,18 @@
 //#define INPUT_SHAPING_Z
 #if ANY(INPUT_SHAPING_X, INPUT_SHAPING_Y, INPUT_SHAPING_Z)
   #if ENABLED(INPUT_SHAPING_X)
-    #define SHAPING_FREQ_X  31.6        // (Hz) The default dominant resonant frequency on the X axis.
-    #define SHAPING_ZETA_X   0.6        // Damping ratio of the X axis (range: 0.0 = no damping to 1.0 = critical damping).
+    #define SHAPING_FREQ_X  42.6        // (Hz) The default dominant resonant frequency on the X axis.
+    #define SHAPING_ZETA_X   0.0        // Damping ratio of the X axis (range: 0.0 = no damping to 1.0 = critical damping).
   #endif
   #if ENABLED(INPUT_SHAPING_Y)
-    #define SHAPING_FREQ_Y  18.3        // (Hz) The default dominant resonant frequency on the Y axis.
-    #define SHAPING_ZETA_Y   0.7        // Damping ratio of the Y axis (range: 0.0 = no damping to 1.0 = critical damping).
+    #define SHAPING_FREQ_Y  20.6        // (Hz) The default dominant resonant frequency on the Y axis.
+    #define SHAPING_ZETA_Y   0.0        // Damping ratio of the Y axis (range: 0.0 = no damping to 1.0 = critical damping).
   #endif
   #if ENABLED(INPUT_SHAPING_Z)
     #define SHAPING_FREQ_Z  40.0        // (Hz) The default dominant resonant frequency on the Z axis.
     #define SHAPING_ZETA_Z   0.15       // Damping ratio of the Z axis (range: 0.0 = no damping to 1.0 = critical damping).
   #endif
-  #define SHAPING_MIN_FREQ  15.0        // (Hz) By default the minimum of the shaping frequencies. Override to affect SRAM usage.
+  #define SHAPING_MIN_FREQ  12.0        // (Hz) By default the minimum of the shaping frequencies. Override to affect SRAM usage.
   //#define SHAPING_MAX_STEPRATE 10000  // By default the maximum total step rate of the shaped axes. Override to affect SRAM usage.
   //#define SHAPING_MENU                // Add a menu to the LCD to set shaping parameters.
 #endif
@@ -2991,7 +2991,7 @@
   #define INTERPOLATE      true
 
   #if AXIS_IS_TMC_CONFIG(X)
-    #define X_CURRENT       600        // (mA) RMS current. Multiply by 1.414 for peak current.
+    #define X_CURRENT       1000       // (mA) RMS current. Multiply by 1.414 for peak current.
     #define X_CURRENT_HOME  X_CURRENT  // (mA) RMS current for sensorless homing
     #define X_MICROSTEPS    16         // 0..256
     #define X_RSENSE        0.11
@@ -3011,7 +3011,7 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(Y)
-    #define Y_CURRENT       900
+    #define Y_CURRENT       X_CURRENT
     #define Y_CURRENT_HOME  Y_CURRENT
     #define Y_MICROSTEPS    X_MICROSTEPS
     #define Y_RSENSE        0.11
@@ -3031,7 +3031,7 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(Z)
-    #define Z_CURRENT       600
+    #define Z_CURRENT       X_CURRENT
     #define Z_CURRENT_HOME  Z_CURRENT
     #define Z_MICROSTEPS    X_MICROSTEPS
     #define Z_RSENSE        0.11
@@ -3131,12 +3131,12 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(E0)
-    #define E0_CURRENT     600
+    #define E0_CURRENT     X_CURRENT
     #define E0_MICROSTEPS  8
     #define E0_RSENSE      0.11
     #define E0_CHAIN_POS  -1
     //#define E0_INTERPOLATE true
-    //#define E0_HOLD_MULTIPLIER 0.5
+    #define E0_HOLD_MULTIPLIER 0.25
   #endif
 
   #if AXIS_IS_TMC_CONFIG(E1)
@@ -3145,7 +3145,7 @@
     #define E1_RSENSE       E0_RSENSE
     #define E1_CHAIN_POS     -1
     //#define E1_INTERPOLATE true
-    //#define E1_HOLD_MULTIPLIER 0.5
+    #define E1_HOLD_MULTIPLIER E0_HOLD_MULTIPLIER
   #endif
 
   #if AXIS_IS_TMC_CONFIG(E2)
@@ -3154,7 +3154,7 @@
     #define E2_RSENSE       E0_RSENSE
     #define E2_CHAIN_POS     -1
     //#define E2_INTERPOLATE true
-    //#define E2_HOLD_MULTIPLIER 0.5
+    #define E2_HOLD_MULTIPLIER E0_HOLD_MULTIPLIER
   #endif
 
   #if AXIS_IS_TMC_CONFIG(E3)
@@ -3163,7 +3163,7 @@
     #define E3_RSENSE       E0_RSENSE
     #define E3_CHAIN_POS     -1
     //#define E3_INTERPOLATE true
-    //#define E3_HOLD_MULTIPLIER 0.5
+    #define E3_HOLD_MULTIPLIER E0_HOLD_MULTIPLIER
   #endif
 
   #if AXIS_IS_TMC_CONFIG(E4)
@@ -3172,7 +3172,7 @@
     #define E4_RSENSE       E0_RSENSE
     #define E4_CHAIN_POS     -1
     //#define E4_INTERPOLATE true
-    //#define E4_HOLD_MULTIPLIER 0.5
+    #define E4_HOLD_MULTIPLIER E0_HOLD_MULTIPLIER
   #endif
 
   #if AXIS_IS_TMC_CONFIG(E5)
@@ -3181,7 +3181,7 @@
     #define E5_RSENSE       E0_RSENSE
     #define E5_CHAIN_POS     -1
     //#define E5_INTERPOLATE true
-    //#define E5_HOLD_MULTIPLIER 0.5
+    #define E5_HOLD_MULTIPLIER E0_HOLD_MULTIPLIER
   #endif
 
   #if AXIS_IS_TMC_CONFIG(E6)
@@ -3190,7 +3190,7 @@
     #define E6_RSENSE       E0_RSENSE
     #define E6_CHAIN_POS     -1
     //#define E6_INTERPOLATE true
-    //#define E6_HOLD_MULTIPLIER 0.5
+    #define E6_HOLD_MULTIPLIER E0_HOLD_MULTIPLIER
   #endif
 
   #if AXIS_IS_TMC_CONFIG(E7)
@@ -3199,7 +3199,7 @@
     #define E7_RSENSE       E0_RSENSE
     #define E7_CHAIN_POS     -1
     //#define E7_INTERPOLATE true
-    //#define E7_HOLD_MULTIPLIER 0.5
+    #define E7_HOLD_MULTIPLIER E0_HOLD_MULTIPLIER
   #endif
 
   /**
@@ -3383,7 +3383,7 @@
    * STEALTHCHOP_(XY|Z|E) must be enabled to use HYBRID_THRESHOLD.
    * M913 X/Y/Z/E to live tune the setting
    */
-  #define HYBRID_THRESHOLD
+  //#define HYBRID_THRESHOLD
 
   #define X_HYBRID_THRESHOLD     600  // [mm/s]
   #define X2_HYBRID_THRESHOLD    X_HYBRID_THRESHOLD
