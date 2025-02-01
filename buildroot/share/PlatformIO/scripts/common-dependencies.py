@@ -242,6 +242,7 @@ if pioutil.is_pio_build():
                         if not common == os.path.normpath(plain): return True
                         onremove(x, "dcr")
                         return False
+
                     cur_srcs = set(filter(filt, cur_srcs))
                 else:
                     # Remove matching source entries.
@@ -249,6 +250,7 @@ if pioutil.is_pio_build():
                         if not fnmatch.fnmatch(x, plain): return True
                         onremove(x)
                         return False
+
                     cur_srcs = set(filter(filt, cur_srcs))
         # Transform the resulting set into a string.
         for x in cur_srcs:
