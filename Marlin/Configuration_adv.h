@@ -2984,7 +2984,7 @@
  */
 #if HAS_TRINAMIC_CONFIG
 
-  #define HOLD_MULTIPLIER    0.5  // Scales down the holding current from run current
+  #define HOLD_MULTIPLIER    0.25  // Scales down the holding current from run current
 
   /**
    * Interpolate microsteps to 256
@@ -3039,7 +3039,7 @@
     #define Z_RSENSE        0.11
     #define Z_CHAIN_POS    -1
     //#define Z_INTERPOLATE  true
-    //#define Z_HOLD_MULTIPLIER 1
+    #define Z_HOLD_MULTIPLIER 0.5
   #endif
 
   #if AXIS_IS_TMC_CONFIG(Z2)
